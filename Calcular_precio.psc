@@ -1,0 +1,46 @@
+Algoritmo Calcular_precio
+	Definir precio,descuento,impuesto,cantidad,peso,envio,descuento_cant,precio_final,valor_impuesto Como Real
+	Definir descuento_existe Como Caracter
+	
+	Escribir "Ingrese el precio original del producto: "
+	Leer precio
+	
+	Escribir "Posee un descuento? (S/N)"
+	Leer descuento_existe
+	si descuento_existe = "S" Entonces
+		Escribir "Ingrese el descuento (ingrese 10% como 10):"
+		Leer descuento
+		descuento <- descuento/100 * precio
+		Escribir descuento
+	FinSi
+	
+	Escribir "Ingrese el valor del impuesto; "
+	Leer valor_impuesto
+	impuesto <- (precio-descuento)*(valor_impuesto/100)
+	Escribir impuesto
+
+	Escribir "Ingrese cantidad del producto a comprar: "
+	Leer cantidad
+	descuento_cant <- 0
+	Si cantidad > 1 Entonces
+		Escribir "Cuanto es el descuento por unidad?"
+		Leer descuento_unidad
+		descuento_cant <- (precio - descuento + impuesto) * (descuento_unidad/100)
+	FinSi
+	
+	Escribir "Ingrese el costo de envio por kg; "
+	Leer costo_destino
+	Escribir "Ingrese el peso del pedido; "
+	Leer peso
+	Escribir "Ingrese el costo fijo de envio: "
+	Leer costo_fijo
+	envio <- costo_fijo +  (peso * costo_destino)
+	
+	precio_final <- (precio - descuento + impuesto - descuento_cant) * cantidad + envio
+	Escribir "El precio final es: ",precio_final
+	
+	
+	
+
+	
+FinAlgoritmo
